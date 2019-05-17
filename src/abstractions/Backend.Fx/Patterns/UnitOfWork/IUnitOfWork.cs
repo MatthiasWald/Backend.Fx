@@ -58,6 +58,7 @@
             Logger.Debug("Completing unit of work #" + _instanceId);
             Flush();
             _eventAggregator.RaiseEvents();
+            Flush();
             Commit();
             AsyncHelper.RunSync(()=>_eventBusScope.RaiseEvents());
             _isCompleted = true;

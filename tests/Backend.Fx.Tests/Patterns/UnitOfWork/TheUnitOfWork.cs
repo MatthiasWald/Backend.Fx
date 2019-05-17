@@ -21,8 +21,8 @@ namespace Backend.Fx.Tests.Patterns.UnitOfWork
             sut.Complete();
             sut.Dispose();
             Assert.Equal(0, sut.RollbackCount);
-            Assert.Equal(1, sut.UpdateTrackingPropertiesCount);
-            Assert.Equal(1, sut.CommitCount);
+            Assert.True(sut.UpdateTrackingPropertiesCount > 0);
+            Assert.True(sut.CommitCount > 0);
         }
 
         [Fact]
